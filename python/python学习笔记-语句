@@ -1,0 +1,15 @@
+pass语句
+空操作，作用相当于一个占位符。
+
+import语句
+使用Python语言提供的标准库和其它但三方软件库。
+
+##import somemodule
+使用模块中的对象：
+somemodule.somefunction
+
+##from somemodule import someobject
+
+
+##from somemodule import *
+
