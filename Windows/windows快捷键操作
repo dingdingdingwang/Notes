@@ -1,0 +1,20 @@
+win+p：屏幕组合键
+
+win+V：调出剪切板
+
+win+数字：调用底部任务栏程序（浏览器win+1）
+
+VI编辑：
+/ 搜索
+:set nu 显示行数
+G 到末尾
+> 清除文件内容
+
+power shell远程：
+ssh root@IP地址
+
+CTRL+F 搜索
+CTRL+X 剪切
+CTRL+Z 撤回
+CTRL+H 历史记录
+CTRL+/ 快速注释
