@@ -1,0 +1,21 @@
+
+想要彻底退出Jupyter Notebook，需要关闭它的服务器。只需要在它启动的终端上按：
+Windows用户：ctrl c
+然后在终端上会提示：“Shutdown this notebook server (y/[n])?”输入y即可关闭服务器，这才是彻底退出了Jupyter Notebook程序。
+
+要退出Sage，按Ctrl-D或者键入quit或exit。
+
+要启动Jupyter笔记本而不是Sage控制台，请运行命令
+sage -n jupyter
+
+远程使用Jupyter笔记本
+如果Sage安装在远程计算机上 ssh 你可以用一个像pyter这样的命令启动笔记本
+ssh -L localhost:8888:localhost:8888 -t USER@REMOTE sage -n jupyter --no-browser --port=8888
+在哪里？ USER@REMOTE需要替换为远程计算机的登录详细信息。这将使用本地端口转发将本地计算机连接到远程计算机。该命令将打印一个URL到控制台，您可以在web浏览器中复制和粘贴该URL。
+
+单元格有两种模式：
+一种是绿色的模式，是编辑模式，一种是蓝色的模式，是命令模式
+回车由命令模式转换为编辑模式，esc从编辑模式转换为命令模式
+摁住“shift+Enter”就可以运行代码，并在代码下面显示运行结果
+在命令模式下摁“N+X”就可以删除该条命令
+在命令模式下摁“M”键就成了Markdown单元格，可以在Markdown单元格里面输入说明性文字
