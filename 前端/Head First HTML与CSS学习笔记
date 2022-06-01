@@ -1,0 +1,64 @@
+                                                        Head First HTML与CSS 第2版
+<br>或者<br/>: 换行符
+
+<hx></hx>:x=1,2,3,...（块元素block特立独行）
+
+<p></p>:一个段落
+
+<em></em>:不同的显示方式（内联元素inline随波逐流）
+
+<strong></strong>:特别强调该处的文本
+
+<img>:包含一个图像（内联元素inline随波逐流）(void元素)
+
+<pre>:输入什么显示什么
+
+<blockquote></blockquote>:长引用（块元素block特立独行）
+
+<q></q>:短引用（内联元素inline随波逐流）
+
+<time>:告诉浏览器这是个时间或日期
+
+<a></a>:（块元素block特立独行也是内联元素inline随波逐流）
+使用<a>元素创建一个超文本链接，链接到另一个web。
+<a>元素内容变成web页面中可单击的文本，href属性告诉浏览器链接的目标文件。
+
+<li></li>:（块元素block特立独行）
+<ol></ol>:（块元素block特立独行）
+<ul></ul>:（块元素block特立独行）
+<ol>[ordered   list-有序列表]和<li>[list item-元素]一起使用
+<ul>[unordered list-无序列表]和<li>[list item-元素]一起使用
+<li>元素用来标识每个元素，<ol>或者<ul>把它们归为一组
+<dl>-定义列表
+<dt></dt>-定义术语
+<dd></dd>-定义描述
+</dl>
+
+缩写&gt;表示>字符
+缩写&lt;表示<字符
+缩写&amp;表示&字符
+更多字符网址：http://www.unicode.org/charts/
+
+关于域名：网站www.starbuzzcoffee.com为例
+www:特定服务器的名字
+starbuzzcoffee:域名
+com:表示用途（如.co.ur/.co.jp/.com/.gov/.org/.edu）
+starbuzzcoffee.com是域名
+www.starbuzzcoffee.com是网站名
+
+URL(Uniform Resource Locator 全局地址):http://www.starbuzzcoffee.com/index.html
+http:指获取资源的协议
+/index.html:从根文件夹到资源的绝对路径
+
+dir:得到当前目录的文件列表
+cd:切换到另一个目录
+..符号表示上一目录
+/符号表示根目录
+pwd:显示当前目录
+put<filename>:将指定的文件传送到服务器
+get<filename>:从服务器获取指定的文件，传回你的计算机
+
+绝对路径:
+文件夹结构：earls_autos(根文件夹)-cars(下一级文件夹)-new(下下一级文件夹)-inventory.html(目标文件)
+绝对路径表示：/cars/new/inventory.html
+
