@@ -1,19 +1,1 @@
-实验室MySQL：
-账户：root
-密码：123456
-
-
-阿里云MySQL：
-账户：root
-密码：jkl1357902486.
-
-
-Windows 和 Centos jupyter：
-密码：123456789
-
-
-Windows 和 Centos jupyter：
-密码：123456789
-
 nohup jupyter notebook --config=/root/.jupyter/jupyter_notebook_config.py  > /dev/null 2>&1 &
-
