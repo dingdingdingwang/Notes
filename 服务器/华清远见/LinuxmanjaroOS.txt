@@ -1,0 +1,159 @@
+manjaro基本命令：
+
+跳过更新失败的包，用pacman -S 单独重新安装
+$ pacman -Syu –ignore xxx 
+
+再执行 
+$ pacman -Su
+
+清除不再需要的包
+$ yaourt -Qdt
+
+更新源
+$ sudo pacman -Syy
+
+更新所有软件
+$ sudo pacman -Syu
+
+安装
+$ sudo pacman -S xxx
+
+重新安装
+$ sudo pacman -Sf xxx
+
+卸载
+$ sudo pacman -R xxx
+
+卸载清楚关系（s）和缓存（c）
+$sudo pacman -Rsunc xxx
+
+安装本地包
+$ sudo pacman -U
+
+下载但不安装
+$ sudo pacman -Sw
+
+清除缓存（/var/cache下）
+$ sudo pacman -Scc
+
+
+安装manjaro之后的配置：
+
+-1.保证manjaro能够连接Xshell
+首先使用下面的命令，开启ssh服务
+$ systemctl start sshd.service
+也让ssh服务开机自启
+$ systemctl enable sshd.service
+如果出现问题，可以重启试一试
+$ systemctl restart sshd.service
+
+$ sudo vim /etc/ssh/sshd_config 
+把X11Forwarding no 改成 X11Forwarding yes即可。
+使用上面的命令，重启一下ssh服务，应该就不会有警告了，如果重启服务不行，那就关机重启试一试。
+
+0.安装网络工具：
+$ sudo pacman -S net-tools
+
+1.更换源：
+$ sudo pacman-mirrors -i -c China -m rank ////更新镜像排名
+$ sudo pacman -Syy //更新数据源
+
+2.安装中文字体：
+$ sudo pacman -S wqy-bitmapfont
+$ sudo pacman -S wqy-microhei
+$ sudo pacman -S wqy-zenhei
+
+3.更新系统到最新：
+$ sudo pacman -Syyu
+
+4.安装chromium
+$ sudo pacman -S chromium
+
+5.安装谷歌拼音
+方法一：
+$ sudo pacman -S fcitx-im fcitx-configtool fcitx-googlepinyin
+$ sudo vim ~/.xprofile
+添加
+export LC_ALL=zh_CN.UTF-8
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+
+6.配置AUR源
+$ sudo vim /etc/pacman.conf
+然后在末尾添加
+[archlinuxcn]
+SigLevel = TrustAll
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+
+7.安装archlinuxcn-keyring:
+$ sudo pacman -S archlinuxcn-keyring
+$ sudo pacman -Syu
+
+8.安装yay（yay aur前端工具）
+$ sudo pacman -S yay
+
+9.安装plank
+$ sudo pacman -S plank
+
+10.安装vim
+$ sudo pacman -S vim
+
+11.安装网易云音乐
+$ sudo pacman -S netease-cloud-music
+
+12.Manjaro修改主目录为英文
+$ sudo pacman -S xdg-user-dirs-gtk
+$ export LANG=en_US
+$ xdg-user-dirs-gtk-update
+$ #然后会有个窗口提示语言更改，更新名称即可
+$ export LANG=zh_CN.UTF-8
+$ reboot
+
+13.安装wps
+$ sudo yay -S wps-office
+$ sudo yay -S ttf-wps-fonts
+
+14.安装 vmtool
+$ sudo pacman -R open-vm-tools
+$ git clone https://github.com/rasa/vmware-tools-patches.git
+$ cd vmware-tools-patches
+$ sudo ./patched-open-vm-tools.sh
+
+15.安装TIM
+$ sudo pacman -S deepin-wine-tim
+
+16.安装markdown编辑器
+$ sudo yaourt typora
+
+17.安装pdf阅读器
+$ sudo yaourt foxit
+
+18.查看manjaro信息
+$ screenfetch
+
+19.vim配置
+$ vim ~/.vimrc
+输入下面的语句
+set nocompatible
+set number
+filetype on
+set history=1000
+set nocompatible
+set shiftwidth=4
+color evening
+syntax on
+set autoindent
+set smartindent
+set tabstop=4
+set showmatch
+set guioptions-=T
+set vb t_vb=
+set ruler
+set nohls
+set incsearch
+if has(“vms”)
+set nobackup
+else
+set backup
+endif

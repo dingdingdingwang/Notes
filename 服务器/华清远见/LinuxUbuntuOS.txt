@@ -1,0 +1,2 @@
+1.查找xxx的安装包内容
+$ dpkg --get-selections |grep xxx

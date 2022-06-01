@@ -1,0 +1,70 @@
+$ echo $SHELL //查看当前shell
+$ cat /etc/shells //查看已有的shell
+$ chsh -s /usr/bin/zsh //使用zsh替换bash（重新打开终端生效）
+$ zsh --version //查看zsh版本
+$ chsh -s /bin/bash //还原bash（需要重启）
+
+卸载oh-my-zsh
+$ sudo uninstall_oh_my_zsh
+
+oh-my-zsh的安装
+1.安装git
+$ sudo pacman -S git
+2.安装zsh
+$ sudo pacman -S zsh
+3.克隆项目
+$ sudo git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+4.创建新的.zshrc文件
+$ cp ~/.oh-my-zsh/templates/zshrc.zsh-template 　~/.zshrc
+5.备份~/.zshrc文件（为以后做打算）
+$ cp ~/.zshrc ~/.zshrc.orig
+6.改变系统默认的bash环境
+$ chsh -s /usr/bin/zsh
+退出当前用户，重新登陆（reboot 只用于root用户）
+reboot
+
+使得终端以zsh运行：
+默认终端启动zsh需要在终端中进行配置
+打开终端，编辑>>>>首选项>>>>命令
+勾选“运行自定义命令而不是shell” 选项
+在下面的“自定义命令”中填写 "zsh"
+
+
+更改zsh主题
+vim ~/.zshrc
+# 修改配置文件中的 " ZSH_THEME ",例如设置为随机主题
+ZSH_THEME  = "random"   
+
+# 配置文件 ~/.zshrc  模板的路径
+~/.oh-my-zsh/templates/zshrc.zsh-template
+
+安装、配置插件
+语法高亮插件 zsh-syntax-highlighting
+# 执行下面指令自动安装
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+自动补全插件 zsh-autosuggestions
+# 执行下面指令自动安装
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+自动跳转插件 autojump
+# clone 到本地
+git clone git://github.com/joelthelion/autojump.git
+# 进入clone目录，接着执行安装文件
+cd autojump
+./install.py
+# 接着根据安装完成后的提示，在~/.bashrc最后添加下面语句：
+vim ~/.bashrc    
+[[ -s /home/misfit/.autojump/etc/profile.d/autojump.sh ]] && source /home/misfit/.autojump/etc/profile.d/autojump.sh
+
+安装完后启用插件
+# 编辑~/.zshrc   
+vim ~/.zshrc    
+# 在plugins后括号里添加安装的插件名字
+plugins=( git 
+            autojump 
+            zsh-autosuggestions 
+            zsh-syntax-highlighting
+            )
+# 最后刷新
+source ~/.zshrc    

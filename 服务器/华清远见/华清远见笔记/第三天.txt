@@ -1,0 +1,53 @@
+开发版介绍
+CPU Samsung Exynos4412 4核 
+ARM 公司（ACRON　英国）　卖IP
+只设计低功耗　CPU　　
+Cortex　A9 
+95% arm
+高通 骁龙845 
+苹果 A系列
+华为 麒麟系列 970 
+4个Cortex A73 4个Cortex A53组成
+
+日本软银公司（阿里巴巴）
+243亿 英镑
+
+ROM 8G
+RAM 4G
+
+串口 
+LED 
+蜂鸣器 
+温度传感器（Ds18b20）
+----------------------------------------------------
+安装驱动 
+华清share/串口线驱动/YH-340---安装这一个 
+运行 CH341SER.EXE
+先点卸载 再点安装 
+
+超级终端
+串口调试工具
+
+LED
+NPN型　三极管（开关）
+给　CHG_COK　高电平电路导通　LED被点亮 
+
+设置CPU的特殊功能寄存器
+GPX2CON  选择GPIO接口的功能
+GPX2DAT  GPIO值
+GPX2PUD  使能上下拉
+GPX2DRV  驱动
+
+
+GPX2CON[7] 输出功能 0x1 
+GPX2DAT 第七位 至1 表示输出高电平
+			   至0 表示输出低电平 
+修改Makefile第七行 
+
+下载程序 
+loadb 0x40001000
+传送 发送文件
+找到.bin
+协议： kermit
+运行程序 
+go 0x40001000

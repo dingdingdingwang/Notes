@@ -1,0 +1,29 @@
+MPI:
+mpicc test.c -o test        # 编译命令
+mpicc test.cpp -o test -lm  #编译命令
+mpirun -np 4 ./test         # 执行命令
+mpiexec -n 4 ./test         #执行命令
+
+OPENMP:
+g++ -fopenmp test.cpp -o test # 编译命令
+./test # 执行命令
+或者
+gcc -fopenmp test.cpp -o test # 编译命令
+./test # 执行命令
+
+MPI+OpenMP:
+mpicc/mpic++ -o test omp.c/omp.cpp -fopenmp # 编译命令
+./test [参数1] [参数2] … # 执行命令
+
+gcc hello.c -o hello
+./hello
+
+VS2019使用Openmp:
+配置(活动Debug) 平台(活动Win32)
+调试-->属性-->C/C++-->所有选项-->Openmp支持改为 是(可以使用下拉菜单)
+
+VS2019使用MPI:
+
+
+Memory hierarchy:存储层次
+Lustre file system

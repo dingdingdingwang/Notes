@@ -1,0 +1,50 @@
+在家目录下创建两个文件夹yangda1 yangda2 ，在yangda1中创建四个文件 file1 file2 file3 file4 和两个文件夹dir1 dir2。
+将yangda1中file1 file3 dir1复制到yangda2
+将yangda1中file2 file4 dir2剪切到yangda2 
+删除yangda1中的所有文件和文件夹，删除yangda1文件夹
+将yangda2重命名为yangda并剪切到根目录
+删除yangda中除了file1 file3以外所有的文件和文件夹
+删除yangda文件夹
+
+
+fs@ubuntu:~$ sudo mkdir yangda1 //（在家目录下创建文件夹yangda1）
+fs@ubuntu:~$ sudo mkdir yangda2 //（在家目录下创建文件夹yangda2）
+fs@ubuntu:~$ cd yangda1
+fs@ubuntu:~/yangda1$ sudo touch file1
+fs@ubuntu:~/yangda1$ sudo touch file2
+fs@ubuntu:~/yangda1$ sudo touch file3
+fs@ubuntu:~/yangda1$ sudo touch file4
+fs@ubuntu:~/yangda1$ sudo mkdir dir1
+fs@ubuntu:~/yangda1$ sudo mkdir dir2 //（在yangda1中创建四个文件file1 file2 file3 file4 和两个文件夹dir1 dir2。）
+fs@ubuntu:~/yangda1$ cp file1 ../yangda2
+fs@ubuntu:~/yangda1$ cp file3 ../yangda2 //（将yangda1中file1 file3 复制到yangda2）
+fs@ubuntu:~$ cp -r yangda1/dir1 yangda2/dir1 //（将yangda1中dir1复制到yangda2）
+fs@ubuntu:~$ mv yangda1/file2 yangda2/file2
+fs@ubuntu:~$ mv yangda1/file4 yangda2/file4 // （将yangda1中file2 file4 剪切到yangda2 ）
+fs@ubuntu:~$ mv yangda1/dir2 yangda2/dir2 // （将yangda1中dir2剪切到yangda2）
+fs@ubuntu:~$ rm yangda1/file1
+fs@ubuntu:~$ rm yangda1/file3
+fs@ubuntu:~$ rm -rf yangda1/dir1 // （删除yangda1中的所有文件和文件夹）
+fs@ubuntu:~$ rm -rf ~/yangda1 // （删除yangda1文件夹）
+fs@ubuntu:~$ mv yangda2 yangda
+fs@ubuntu:~$ sudo mv yangda / //（将yangda2重命名为yangda并剪切到根目录）
+fs@ubuntu:/yangda$ rm -rf !(file1|file3) // （删除yangda中除了file1 file3以外所有的文件和文件夹）
+fs@ubuntu:/$ sudo rm -rf yangda //（删除yangda文件夹）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,131 @@
+《骇客追缉令》凯文尼德尼克
+
+DOS　
+	ipconfig 查看本机网卡的信息
+	ping 查看网络是否联通
+	ping ip地址 
+		 域名
+	ping www.baidu.com
+	不能上网
+	Ping 请求找不到主机 www.baidu.com。请检查该名称，然后重试。
+	
+	来自 www.baidu.com 的回复: 字节=32 时间<1ms TTL=128
+	来自 www.baidu.com 的回复: 字节=32 时间<1ms TTL=128
+	来自 www.baidu.com 的回复: 字节=32 时间<1ms TTL=128
+	来自 www.baidu.com 的回复: 字节=32 时间<1ms TTL=128
+	
+	shutdown 关机 
+	shutdown -s -t time （seconds） 定时关机 
+	shutdown -a 取消关机计划
+Linux 指令 
+1.终端操作
+1)创建终端 
+ctrl + alt + t 
+2) 放大终端
+ctrl + shift + + 
+3) 缩小终端
+ctrl + - 
+4)关闭终端
+alt + F4/ alt + Fn + F4 
+
+2.命令提示符 
+fs@ubuntu:~$ 
+当前用户名@主机名:当前所处位置$
+$ 说明当前用户是普通用户
+# 说明当前用户是超级用户（系统最高权限）
+root
+root@ubuntu:/home/fs#  
+
+3. Linux 目录结构
+树状的分区结构 
+/ 根目录
+
+4. Linux 的路径 
+路径：文件的位置
+D:\课件（新）\01-C补习\新版本课件
+1）绝对路径：出发点为根目录 
+eg : /boot/grub 
+根目录   分隔符
+2）相对路径：出发点为当前目录 
+	.	当前目录 
+	..  上级目录
+	../.. 上上级目录
+	../../.. 上上上级目录
+	../../../.. 上上上上级目录 
+	
+5.特殊目录 家目录 
+~ 当前用户的主要工作目录
+一般普通用户只有在家目录下有操作权限
+位置： 
+普通用户一般会在/home创建一个和当前用户名同名的文件夹作为自己的家目录
+fs 
+/home/fs = ~
+yasuo 
+/home/yasuo = ~ 
+
+6.Linux 常用指令
+1）ls 
+显示当前目录下的所有可见的文件和文件夹
+ls -a 
+Linux中隐藏文件以".”开头的
+ls -l 
+显示当前目录下所有文件的信息（文件名，文件的大小，文件修改时间，文件的属性等）
+
+2）cd 切换目录 
+cd pathname(绝对路径/相对路径)
+$ cd /home/fs/Music
+$ cd ~/Music
+$ cd ./Music
+$ cd Music
+注意： 
+如果操作的目录或文件就在当前目录下，可以不提供完整的路径，
+只需要提供文件名即可
+
+$ cd .. 切换到上级目录
+$ cd - 返回上次操作的目录 
+
+3）mkdir 创建目录
+mkdir pathname/filename
+
+4) touch 创建文件 
+touch pathname/filename 
+
+5) rm 删除 
+rm pathname/filename 
+注意： 删除文件夹/文件 
+rm -rf  pathname/filename
+
+6)cp 拷贝 
+cp 源文件 目标文件
+cp sourcepath/filename destinationpath/filename 
+如果目标路径不指定文件名，生成文件名和源文件相同
+注意如果拷贝的对象是文件夹 
+cp sourcepath/filename destinationpath/filename -r 
+
+7)mv 
+[1]剪切 
+mv sourcepath/filename destinationpath/filename
+[2]重命名
+mv sourcepath/filename destinationpath/filename
+注意：
+如果目标文件不存则mv标识重命名
+如果目标文件存在则mv标识剪切
+
+8）用户切换
+su 用户名 
+
+修改超级用户密码
+sudo passwd 用户名(root)
+注意： 
+尽量减少切换到超级用户
+
+练习： 
+在家目录下创建两个文件夹yangda1 yangda2 ，在yangda1中创建四个文件
+file1 file2 file3 file4 和两个文件夹dir1 dir2。
+将yangda1中file1 file3 dir1复制到yangda2
+将yangda1中file2 file4 dir2剪切到yangda2 
+删除yangda1中的所有文件和文件夹，删除yangda1文件夹
+
+将yangda2重命名为yangda并剪切到根目录
+删除yangda中除了file1 file3以外所有的文件和文件夹
+删除yangda文件夹

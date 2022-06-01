@@ -1,0 +1,118 @@
+more -> 显示文本文档
+fdisk -> 硬盘分区
+mkfs -> 格式化
+chmod -> 改变文件权限
+grep -> 按条件高亮显示文本
+man -> 显示命令的help文档
+df -h -> 查看磁盘剩余空间
+du -sh dir -> 查看文件夹名"dir"占用的空间
+lsof -i:8080 -> 查看8080端口是否被占用
+find . -name "filename.txt" -> 搜索当前目录下filename.txt文件，包括各级子目录
+
+tail -n 20 filename (显示filename最后20行)
+chmod -R 777 dir （将dir整体变为777）
+rm -rf dir (整体删除dir)
+cp -r -a ./* /dir (将当前路径下所有文件包括子目录全部拷贝到dir)
+tar -xvzf filename (解压缩gz文件)
+gzip -d filename (解压缩gz文件)
+unzip -x filename (解压缩zip文件)
+rpm -ivh （安装一个包）
+rpm -Uvh （升级一个包）
+rpm -e （卸载一个包）
+
+分区 & 格式化
+1. 先看看有几个物理硬盘：
+#fdisk -l 
+2. 选择一个物理硬盘来分区
+#fdisk /dev/vdb1 (我这儿交vdb1)
+3. 进去后和DOS差不多，使用的是快捷命令：
+p : 查看当前分区
+d：删除当前分区
+n：创建一个新的分区
+w: 存盘退出（所有改动生效）
+q: 不存盘、退出（所有改动不生效，安全）
+这个跟老DOS很相像，一个一个子分区先删除干净之后才能建立新分区
+格式化：
+mkfs.ext4 /dev/vdb1
+等待命令执行完成
+4. 挂载新硬盘到操作系统的某个节点上
+mkdir /mnt/sdd
+mount /mnt/sdd /dev/vdb1
+5. 大功告成后，可用 df 指令再查看查看
+
+更换源
+1.安装wget
+$ sudo yum install -y wget
+2.查询国内镜像源
+打开阿里镜像http://mirrors.aliyun.com/
+3.点击帮助：
+4.下载CentOS 7的repo文件
+       wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+或者
+       curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+5.更新镜像源
+$ yum clean all  #清除缓存
+$ yum makecache #生成缓存
+
+
+1.配置网络
+VMware：网络适配器 桥接
+配置地址
+$ su root
+# dhclient
+# ifconfig
+$ cd /etc/sysconfig/network-scripts
+# vim /etc/sysconfig/network-scripts/ifcfg-ens33
+------------------------------------------------------
+TYPE="Ethernet"   # 网络类型为以太网
+BOOTPROTO="static"  # 手动分配ip
+NAME="ens33"  # 网卡设备名，设备名一定要跟文件名一致
+DEVICE="ens33"  # 网卡设备名，设备名一定要跟文件名一致
+ONBOOT="yes"  # 该网卡是否随网络服务启动
+IPADDR=192.168.43.254  # 该网卡ip地址就是你要配置的固定IP，如果你要用xshell等工具连接，220这个网段最好和你自己的电脑网段一致，否则有可能用xshell连接失败
+GATEWAY=192.168.43.1   # 网关
+NETMASK="255.255.255.0"   # 子网掩码
+DNS1=119.29.29.29 #公网dns地址
+------------------------------------------------------
+# systemctl restart network.service # 重启网络
+
+添加第三方源
+EPEL源
+$ sudo yum install epel-release
+ELRepo 源
+$ sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+$ sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
+
+添加CentOS SCLo软件集合仓库
+$ sudo yum install centos-release-scl-rh centos-release-scl
+
+添加Remi的RPM存储库，它提供很多有用的包
+$ sudo yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+
+安装vim-enhanced
+$ sudo yum install vim-enhanced
+
+安装 yum-axelget
+$ sudo yum install yum-axelget
+
+安装 BT 软件
+$ sudo yum install transmission
+在 “Application”->“Internet”-> 中可以启动 transmission
+
+安装 uGet
+$ sudo yum --enablerepo=epel-testing install uget aria2
+
+安装 mplayer
+$ sudo yum install mplayer
+
+安装 vlc
+$ sudo yum install vlc
+
+更换源
+第一步：备份原始源
+$ cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+第二步：创建新源
+$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo
+第三步：重新缓存
+$ yum clean all
+$ yum makecache
